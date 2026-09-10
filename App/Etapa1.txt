@@ -1,0 +1,11 @@
+Descrição da Aplicação:
+
+O Plano de Projeto da aplicação é fundado no entretenimento. Visamos criar um simples porém cativante
+jogo incremental sobre gatos e novelos. A ideia principal é a de criar uma experiência similar
+ao jogo "Cookie Clicker", adaptado para nossa visão e construído do 0.
+
+De acordo com nosso planejamento, o usuário será capaz de criar sua conta, responsável por
+armazenar seu progresso, garantir que apenas o mesmo consiga criar ou deletar seus "Jogos Salvos"
+e também, de forma experimental, gostaríamos de estabelecer um sistema de conquistas simples para
+engajar o jogador. Além disso, será possível ver jogadores e seus recordes individuais, sem possibilidade de edição.
+
