@@ -43,3 +43,13 @@ Uso de IA:
 
 
 
+
+## Executar o aplicativo YarnClicker com Expo
+
+Instale as dependências com `npm install` e inicie o servidor de desenvolvimento com:
+
+```bash
+npm start
+```
+
+Use `npm run android` ou `npm run ios` para iniciar no emulador ou dispositivo da respectiva plataforma. Para executar no navegador, use `npm run web`.
