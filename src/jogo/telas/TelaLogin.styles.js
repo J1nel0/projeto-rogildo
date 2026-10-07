@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	container: {
-		flexGrow: 1,
 		justifyContent: "center",
 		padding: 24,
+		flexGrow: 1,
 	},
 	formulario: {
 		alignSelf: "center",
@@ -12,10 +12,14 @@ const styles = StyleSheet.create({
 		maxWidth: 420,
 		width: "100%",
 	},
+	content:{
+		flex: 1,
+	},
 	titulo: {
 		fontSize: 24,
 		fontWeight: "bold",
 		marginBottom: 8,
+		alignSelf: "center"
 	},
 	campo: {
 		gap: 6,

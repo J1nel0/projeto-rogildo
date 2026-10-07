@@ -25,7 +25,7 @@ export default function TelaLogin({ onLogin }) {
 	}
 
 	return (
-		<ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+		<ScrollView style={styles.content} contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
 			<View style={styles.formulario}>
 				<Text style={styles.titulo}>Entrar no YarnClicker</Text>
 
