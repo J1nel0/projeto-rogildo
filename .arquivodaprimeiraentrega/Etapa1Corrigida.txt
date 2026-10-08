@@ -1,0 +1,99 @@
+Descrição da Aplicação:
+
+O Plano de Projeto da aplicação é fundado no entretenimento. Visamos criar um simples porém cativante
+jogo incremental sobre gatos e novelos. A ideia principal é a de criar uma experiência similar
+ao jogo "Cookie Clicker", adaptado para nossa visão e construído do 0.
+
+De acordo com nosso planejamento, o usuário será capaz de criar sua conta, responsável por
+armazenar seu progresso, garantir que apenas o mesmo consiga criar ou deletar seus "Jogos Salvos"
+e também, de forma experimental, gostaríamos de estabelecer um sistema de conquistas simples para
+engajar o jogador. Além disso, será possível ver jogadores e seus recordes individuais, sem possibilidade de edição.
+
+Utilizando o oauth e jwt, criaremos uma ferramenta de login para garantir a segurança
+das informações e jogos salvos de cada usuário.
+
+O jogo Yarn Clicker será simples. O usuário poderá tocar em um botão que
+conferirá uma pontuação ao jogador (Novelos) que serão utilizados para comprar aprimoramentos
+e novos personagens que aumentarão os ganhos passivos e ativos de "novelos".
+
+A princípio, os endpoints pensados e seus contratos serão:
+
+Premissas para os contratos:
+- `:id` identifica o usuário e `:jogoId` identifica um jogo salvo; ambos devem ser valores únicos definidos pela API.
+- Os endpoints privados exigem `Authorization: Bearer <token JWT>`. O usuário autenticado só pode alterar os próprios dados e jogos salvos.
+- As respostas de usuário nunca devem incluir a senha ou outros dados de autenticação.
+- Para alterar ou excluir um usuário específico, as rotas `PATCH` e `DELETE` usam `/usuarios/:id` em vez de `/usuarios`.
+- Os exemplos abaixo são formatos sugeridos; os campos de progresso do jogo ainda precisam ser definidos pelo projeto.
+
+1. Página inicial da API
+	- Método: `GET`
+	- Rota: `/`
+	- Acesso: público
+	- Parâmetros: nenhum.
+	- Resposta esperada: `200 OK` com uma mensagem indicando que a API está disponível.
+	  Exemplo: `{ "mensagem": "API Yarn Clicker" }`
+
+2. Listar usuários
+	- Método: `GET`
+	- Rota: `/usuarios`
+	- Acesso: público
+	- Parâmetros: query opcional `pagina` e `limite`, caso a listagem use paginação.
+	- Resposta esperada: `200 OK` com uma lista de perfis públicos, sem senhas ou dados privados.
+	  Exemplo: `{ "usuarios": [{ "id": "123", "nome": "Lia", "recorde": 850 }], "pagina": 1, "limite": 20 }`
+
+3. Consultar um usuário
+	- Método: `GET`
+	- Rota: `/usuarios/:id`
+	- Acesso: público
+	- Parâmetros: caminho `id` do usuário.
+	- Resposta esperada: `200 OK` com o perfil público do usuário; `404 Not Found` se não existir.
+	  Exemplo: `{ "id": "123", "nome": "Lia", "recorde": 850 }`
+
+4. Criar usuário
+	- Método: `POST`
+	- Rota: `/usuarios`
+	- Acesso: público
+	- Parâmetros: corpo JSON com `nome`, `email` e `senha`.
+	  Exemplo: `{ "nome": "Lia", "email": "lia@example.com", "senha": "senha-forte" }`
+	- Resposta esperada: `201 Created` com o usuário criado, sem a senha.
+	  Exemplo: `{ "id": "123", "nome": "Lia", "email": "lia@example.com" }`
+	  Retornar `400 Bad Request` para dados inválidos e `409 Conflict` se o e-mail já estiver cadastrado.
+
+5. Excluir usuário
+	- Método: `DELETE`
+	- Rota: `/usuarios/:id`
+	- Acesso: privado
+	- Parâmetros: caminho `id` do usuário; token JWT no cabeçalho.
+	- Resposta esperada: `204 No Content` quando excluído; `401 Unauthorized` sem token válido; `403 Forbidden` se o usuário tentar excluir outra conta; `404 Not Found` se o usuário não existir.
+
+6. Alterar usuário
+	- Método: `PATCH`
+	- Rota: `/usuarios/:id`
+	- Acesso: privado
+	- Parâmetros: caminho `id` do usuário; corpo JSON com os campos que serão alterados (por exemplo, `nome`); token JWT no cabeçalho.
+	- Resposta esperada: `200 OK` com o perfil atualizado, sem a senha. Retornar `400 Bad Request` para dados inválidos, `401 Unauthorized` sem token válido, `403 Forbidden` para alteração de outra conta e `404 Not Found` se o usuário não existir.
+
+7. Listar jogos salvos de um usuário
+	- Método: `GET`
+	- Rota: `/usuarios/:id/jogosSalvos`
+	- Acesso: privado
+	- Parâmetros: caminho `id` do usuário; token JWT no cabeçalho.
+	- Resposta esperada: `200 OK` com a lista de jogos salvos. A lista pode estar vazia; retornar `401 Unauthorized` sem token válido ou `403 Forbidden` se os dados forem de outro usuário.
+	  Exemplo: `{ "jogosSalvos": [{ "id": "save-1", "novelos": 850, "progresso": {} }] }`
+
+8. Excluir jogos salvos de um usuário
+	- Método: `DELETE`
+	- Rota: `/usuarios/:id/jogosSalvos`
+	- Acesso: privado
+	- Parâmetros: caminho `id` do usuário; token JWT no cabeçalho.
+	- Resposta esperada: `204 No Content` quando os jogos salvos forem excluídos; `401 Unauthorized` sem token válido ou `403 Forbidden` se os dados forem de outro usuário. Esta rota exclui todos os jogos salvos do usuário.
+
+9. Criar ou substituir jogos salvos de um usuário
+	- Método: `PUT`
+	- Rota: `/usuarios/:id/jogosSalvos`
+	- Acesso: privado
+	- Parâmetros: caminho `id` do usuário; corpo JSON com a coleção de jogos salvos; token JWT no cabeçalho.
+	  Exemplo: `{ "jogosSalvos": [{ "id": "save-1", "novelos": 850, "progresso": {} }] }`
+	- Resposta esperada: `200 OK` com a coleção atualizada (ou `201 Created` se criada pela primeira vez); `400 Bad Request` para dados inválidos, `401 Unauthorized` sem token válido ou `403 Forbidden` se os dados forem de outro usuário.
+
+Para endpoints privados, também pode ser retornado `500 Internal Server Error` em caso de falha inesperada no servidor. O fluxo de login e emissão do JWT ainda precisa de um endpoint próprio, caso não seja tratado diretamente pelo provedor OAuth.

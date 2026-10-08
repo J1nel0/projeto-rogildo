@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View, Image } from "react-native";
-import styles from "./TelaCadastro.styles.js";
+import styles from "./Estilizacao/TelaCadastro.styles.js";
 
-export default function TelaCadastro({ onCadastrar }) {
+export default function TelaCadastro({ onCadastrar, onVoltar }) {
 	const [formulario, setFormulario] = useState({
 		nome: "",
 		email: "",
@@ -124,6 +124,14 @@ export default function TelaCadastro({ onCadastrar }) {
 					style={({ pressed }) => [styles.botao, pressed && styles.botaoPressionado]}
 				>
 					<Text style={styles.textoBotao}>Cadastrar</Text>
+				</Pressable>
+
+				<Pressable
+					accessibilityRole="button"
+					onPress={onVoltar}
+					style={({ pressed }) => [styles.botao, pressed && styles.botaoPressionado]}
+				>
+					<Text style={styles.textoBotao}>Voltar para entrar</Text>
 				</Pressable>
 			</View>
 		</ScrollView>

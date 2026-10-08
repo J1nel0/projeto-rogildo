@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import styles from "./TelaLogin.styles.js";
+import styles from "./Estilizacao/TelaLogin.styles.js";
+import TelaCadastro from "./TelaCadastro.jsx";
 
 export default function TelaLogin({ onLogin }) {
+	const [mostrarCadastro, setMostrarCadastro] = useState(false);
 	const [email, setEmail] = useState("");
 	const [senha, setSenha] = useState("");
 	const [erro, setErro] = useState("");
+
+	if (mostrarCadastro) {
+		return <TelaCadastro onVoltar={() => setMostrarCadastro(false)} />;
+	}
 
 	function entrar() {
 		const emailNormalizado = email.trim();
@@ -72,6 +78,16 @@ export default function TelaLogin({ onLogin }) {
 				>
 					<Text style={styles.textoBotao}>Entrar</Text>
 				</Pressable>
+
+				<Pressable
+					accessibilityRole="button"
+					onPress={() => setMostrarCadastro(true)}
+					style={({ pressed }) => [styles.botao, pressed && styles.botaoPressionado]}
+				>
+					<Text style={styles.textoBotao}>Não tem uma conta? Cadastre-se!</Text>
+				</Pressable>	
+
+
 			</View>
 		</ScrollView>
 	);

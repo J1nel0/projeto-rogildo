@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import styles from "./TelaUser.styles.js";
+import styles from "./Estilizacao/TelaUser.styles.js";
 
 export default function TelaUser() {
 	return (

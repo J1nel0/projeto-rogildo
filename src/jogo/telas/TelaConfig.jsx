@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import styles from "./TelaSave.styles.js";
+import styles from "./Estilizacao/TelaConfig.styles.js";
 
 export default function TelaSave() {
 	return (

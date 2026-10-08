@@ -1,5 +1,7 @@
 import { Text, View } from "react-native";
-import styles from "./TelaConstrucao.styles.js";
+import styles from "./Estilizacao/TelaConstrucao.styles.js";
+
+
 
 export default function TelaConstrucao() {
 	return (

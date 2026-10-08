@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import styles from "./TelaConquista.styles.js";
+import styles from "./Estilizacao/TelaConquista.styles.js";
 
 export default function TelaConquista() {
 	return (

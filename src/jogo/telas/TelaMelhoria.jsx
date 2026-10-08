@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import styles from "./TelaMelhoria.styles.js";
+import styles from "./Estilizacao/TelaMelhoria.styles.js";
 
 export default function TelaMelhoria() {
 	return (
