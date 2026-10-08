@@ -4,7 +4,7 @@ import styles from "./Estilizacao/TelaConfig.styles.js";
 export default function TelaSave() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.titulo}>Tela Save</Text>
+			<Text style={styles.titulo}>Tela Configuração</Text>
 		</View>
 	);
 }

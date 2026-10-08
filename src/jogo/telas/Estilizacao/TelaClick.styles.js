@@ -12,6 +12,18 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 	},
+
+	subtitulo: {
+		fontSize: 18,
+		fontWeight: "semi-bold",
+		textAlign: "center",
+	},
+
+	imagem:{
+		width: 200, 
+		height: 200,
+		borderRadius: 0.5
+	}
 });
 
 export default styles;

@@ -15,7 +15,7 @@ export const Screens = {
 	construction: "Construção",
 	upgrades: "Melhorias",
 	user: "Usuário",
-	setting: "Configuração",
+	settings: "Configuração",
 
 }
 export default function YarnClicker() {

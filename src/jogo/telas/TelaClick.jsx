@@ -1,30 +1,61 @@
-import { Text, View } from "react-native";
+
 import styles from "./Estilizacao/TelaClick.styles.js";
-import { Pressable } from "react-native";
-import { useState } from "react";
+import { Pressable, Image, Text, View } from "react-native";
+import { useState, useEffect } from "react";
 
 export default function TelaClick() {
 
 	const [clicksAtuais, setClicksAtuais] = useState(0);
-	const [mdfConstrucao, setMdfConstrucao] = useState(1);
-	const [mdfMelhoria, setMdfMelhoria] = useState(1);
+	const [clicksPSegundo, setClicksPSegundo] = useState(1);
 
-	function clickNovelo(clicksAtuais, mdfConstrucao, mdfMelhoria ){
 
-		setClicksAtuais(clicksAtuais + (1 * mdfConstrucao * mdfMelhoria))
+	const Construcoes = 1;
+	const mdfMelhoria = 1
+
+
+
+	function clickNovelo(clicksAtuais, mdfMelhoria ){
+
+		setClicksAtuais(clicksAtuais + (1 * mdfMelhoria))
 	}
+
+	useEffect(()=>{
+		const intervalo = setInterval(()=>{
+			setClicksAtuais((clicksAtuais) => clicksAtuais + (clicksPSegundo));
+		}, 1000);
+
+		return () => clearInterval(intervalo);
+
+	}, [clicksPSegundo])
+
 
 
 	return (
-		// <View style={styles.container}>
-		// 	<Text style={styles.titulo}>Tela Click</Text>
-		// </View>
+		<View style={styles.container}>
 
-		<Pressable
-			accessibilityRole="button"
-			onPress={() => clickNovelo(clicksAtuais, mdfConstrucao, mdfMelhoria)}
-		>
+			<Text style={styles.titulo}>{clicksAtuais}</Text>
 
-		</Pressable>
+			<Pressable
+				style={styles.container}
+				accessibilityRole="button"
+				onPress={() => clickNovelo(clicksAtuais, Construcoes, mdfMelhoria)}>
+
+					<Image
+		   				source={require('../assets/logoplaceholder.png')}
+						style={styles.imagem}
+						resizeMode="contain"
+					/>
+			</Pressable>
+
+			<Text style={styles.subtitulo}>Novelos por Click: {1 * mdfMelhoria}</Text>
+			<Text style={styles.subtitulo}>NPS: {clicksPSegundo}</Text>
+
+		</View>
+		
+
+		
+
+
+
 	);
 }
