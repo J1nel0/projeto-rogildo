@@ -1,7 +1,8 @@
 
+import { Ionicons } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import styles from "./Estilizacao/TelaClick.styles.js";
-import { Pressable, Image, Text, View } from "react-native";
-import { useState, useEffect } from "react";
 
 export default function TelaClick() {
 
@@ -9,14 +10,10 @@ export default function TelaClick() {
 	const [clicksPSegundo, setClicksPSegundo] = useState(1);
 
 
-	const Construcoes = 1;
-	const mdfMelhoria = 1
+	const mdfMelhoria = 1;
 
-
-
-	function clickNovelo(clicksAtuais, mdfMelhoria ){
-
-		setClicksAtuais(clicksAtuais + (1 * mdfMelhoria))
+	function clickNovelo() {
+		setClicksAtuais((totalAtual) => totalAtual + mdfMelhoria);
 	}
 
 	useEffect(()=>{
@@ -31,31 +28,39 @@ export default function TelaClick() {
 
 
 	return (
-		<View style={styles.container}>
+		<ScrollView style={styles.tela} contentContainerStyle={styles.container}>
+			<View style={styles.cabecalho}>
+				<Text style={styles.titulo}>Seu novelo</Text>
+				<Text style={styles.descricao}>Toque no ícone para produzir mais lã.</Text>
+			</View>
 
-			<Text style={styles.titulo}>{clicksAtuais}</Text>
+			<View style={styles.placar}>
+				<Text style={styles.rotuloPlacar}>NOVELOS</Text>
+				<Text style={styles.valorPlacar}>{clicksAtuais}</Text>
+			</View>
 
 			<Pressable
-				style={styles.container}
+				accessibilityLabel="Produzir novelo"
 				accessibilityRole="button"
-				onPress={() => clickNovelo(clicksAtuais, Construcoes, mdfMelhoria)}>
-
-					<Image
-		   				source={require('../assets/logoplaceholder.png')}
-						style={styles.imagem}
-						resizeMode="contain"
-					/>
+				onPress={clickNovelo}
+				style={({ pressed }) => [styles.botaoNovelo, pressed && styles.botaoNoveloPressionado]}
+			>
+				<Ionicons name="basketball-outline" size={112} color="#fff" />
 			</Pressable>
 
-			<Text style={styles.subtitulo}>Novelos por Click: {1 * mdfMelhoria}</Text>
-			<Text style={styles.subtitulo}>NPS: {clicksPSegundo}</Text>
+			<View style={styles.estatisticas}>
+				<View style={styles.cartaoEstatistica}>
+					<Ionicons name="hand-left-outline" size={22} color="#6c3cb5" />
+					<Text style={styles.valorEstatistica}>{mdfMelhoria}</Text>
+					<Text style={styles.rotuloEstatistica}>por toque</Text>
+				</View>
 
-		</View>
-		
-
-		
-
-
-
+				<View style={styles.cartaoEstatistica}>
+					<Ionicons name="time-outline" size={22} color="#6c3cb5" />
+					<Text style={styles.valorEstatistica}>{clicksPSegundo}</Text>
+					<Text style={styles.rotuloEstatistica}>por segundo</Text>
+				</View>
+			</View>
+		</ScrollView>
 	);
 }
