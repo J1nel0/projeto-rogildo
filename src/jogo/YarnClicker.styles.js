@@ -3,8 +3,8 @@ import { Platform, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 	jogo: {
 		flex: 1,
-		minHeight: Platform.OS === "web" ? "100vh" : undefined,
-		backgroundColor: "#fff",
+		height: Platform.OS === "web" ? "100vh" : undefined,
+		backgroundColor: "#fff4eb",
 	},
 	titulo: {
 		fontSize: 28,

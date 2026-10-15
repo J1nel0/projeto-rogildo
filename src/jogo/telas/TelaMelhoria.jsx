@@ -42,10 +42,12 @@ export default function TelaMelhoria() {
 								<Ionicons name={melhoria.icone} size={26} color="#6c3cb5" />
 							</View>
 							<View style={styles.informacoes}>
-								<Text style={styles.nome}>{melhoria.titulo}</Text>
+								<View style={styles.linhaTitulo}>
+									<Text style={styles.nivel}>{melhoria.nivel}</Text>
+									<Text style={styles.nome}>{melhoria.titulo}</Text>
+								</View>
 								<Text style={styles.texto}>{melhoria.descricao}</Text>
 							</View>
-							<Text style={styles.nivel}>{melhoria.nivel}</Text>
 						</View>
 
 						<Pressable accessibilityRole="button" style={styles.botao}>

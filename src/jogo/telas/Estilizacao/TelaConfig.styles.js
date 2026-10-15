@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	tela: {
-		backgroundColor: "#f7f3fb",
+		backgroundColor: "#fff4eb",
 		flex: 1,
 	},
 	container: {
@@ -17,26 +17,26 @@ const styles = StyleSheet.create({
 		gap: 5,
 	},
 	titulo: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 28,
 		fontWeight: "bold",
 	},
 	descricao: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 15,
 	},
 	secao: {
 		gap: 10,
 	},
 	tituloSecao: {
-		color: "#8b729e",
+		color: "#a86d46",
 		fontSize: 11,
 		fontWeight: "bold",
 		letterSpacing: 1.2,
 	},
 	cartao: {
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 15,
 		borderWidth: 1,
 		overflow: "hidden",
@@ -48,23 +48,23 @@ const styles = StyleSheet.create({
 		padding: 16,
 	},
 	linhaComBorda: {
-		borderBottomColor: "#eee5f6",
+		borderBottomColor: "#f5ddc9",
 		borderBottomWidth: 1,
 	},
 	nomePreferencia: {
-		color: "#271638",
+		color: "#43200f",
 		flex: 1,
 		fontSize: 15,
 		fontWeight: "600",
 	},
 	valorPreferencia: {
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 12,
 		fontWeight: "bold",
 	},
 	botaoPrimario: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
+		backgroundColor: "#d94b00",
 		borderRadius: 11,
 		flexDirection: "row",
 		gap: 8,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 	botaoSecundario: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#6c3cb5",
+		borderColor: "#d94b00",
 		borderRadius: 11,
 		borderWidth: 1,
 		flexDirection: "row",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 		padding: 13,
 	},
 	textoBotaoSecundario: {
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 14,
 		fontWeight: "bold",
 	},

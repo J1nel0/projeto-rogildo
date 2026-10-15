@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	tela: {
-		backgroundColor: "#f7f3fb",
+		backgroundColor: "#fff4eb",
 		flex: 1,
 	},
 	container: {
@@ -19,18 +19,18 @@ const styles = StyleSheet.create({
 		gap: 5,
 	},
 	titulo: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 28,
 		fontWeight: "bold",
 	},
 	descricao: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 15,
 	},
 	perfil: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 18,
 		borderWidth: 1,
 		gap: 4,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 	},
 	avatar: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
+		backgroundColor: "#d94b00",
 		borderRadius: 38,
 		height: 76,
 		justifyContent: "center",
@@ -47,18 +47,18 @@ const styles = StyleSheet.create({
 		width: 76,
 	},
 	nome: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 21,
 		fontWeight: "bold",
 	},
 	email: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 13,
 	},
 	estatisticas: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 16,
 		borderWidth: 1,
 		flexDirection: "row",
@@ -71,16 +71,16 @@ const styles = StyleSheet.create({
 		gap: 2,
 	},
 	valor: {
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 20,
 		fontWeight: "bold",
 	},
 	rotulo: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 11,
 	},
 	divisor: {
-		backgroundColor: "#e7dcf3",
+		backgroundColor: "#f1c9a8",
 		height: 34,
 		width: 1,
 	},
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 	},
 	botaoPrimario: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
+		backgroundColor: "#d94b00",
 		borderRadius: 11,
 		flexDirection: "row",
 		gap: 8,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 	botaoSecundario: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#6c3cb5",
+		borderColor: "#d94b00",
 		borderRadius: 11,
 		borderWidth: 1,
 		flexDirection: "row",
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
 		padding: 13,
 	},
 	textoBotaoSecundario: {
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 14,
 		fontWeight: "bold",
 	},

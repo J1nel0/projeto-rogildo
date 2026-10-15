@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 	},
 	input: {
-		borderColor: "#888",
+		borderColor: "#c58b63",
 		borderRadius: 6,
 		borderWidth: 1,
 		fontSize: 16,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 	},
 	botao: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
+		backgroundColor: "#d94b00",
 		borderRadius: 6,
 		padding: 12,
 	},

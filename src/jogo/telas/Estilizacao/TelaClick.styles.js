@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	tela: {
-		backgroundColor: "#f7f3fb",
+		backgroundColor: "#fff4eb",
 		flex: 1,
 	},
 	container: {
@@ -20,48 +20,42 @@ const styles = StyleSheet.create({
 		gap: 6,
 	},
 	titulo: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 28,
 		fontWeight: "bold",
 		textAlign: "center",
 	},
 	descricao: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 15,
 		textAlign: "center",
 	},
 	placar: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 18,
 		borderWidth: 1,
 		paddingHorizontal: 42,
 		paddingVertical: 14,
 	},
 	rotuloPlacar: {
-		color: "#8b729e",
+		color: "#a86d46",
 		fontSize: 11,
 		fontWeight: "bold",
 		letterSpacing: 1.5,
 	},
 	valorPlacar: {
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 40,
 		fontWeight: "bold",
 	},
 	botaoNovelo: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
-		borderColor: "#8256c4",
 		borderRadius: 96,
-		borderWidth: 8,
 		height: 192,
 		justifyContent: "center",
-		shadowColor: "#4d258a",
-		shadowOffset: { width: 0, height: 8 },
-		shadowOpacity: 0.28,
-		shadowRadius: 12,
+		shadowColor: "#a83a00",
 		width: 192,
 	},
 	botaoNoveloPressionado: {
@@ -77,7 +71,7 @@ const styles = StyleSheet.create({
 	cartaoEstatistica: {
 		alignItems: "center",
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 14,
 		borderWidth: 1,
 		flex: 1,
@@ -85,12 +79,12 @@ const styles = StyleSheet.create({
 		padding: 14,
 	},
 	valorEstatistica: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 21,
 		fontWeight: "bold",
 	},
 	rotuloEstatistica: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 12,
 	},
 });

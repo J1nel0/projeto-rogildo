@@ -1,8 +1,9 @@
 
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View, Image } from "react-native";
 import styles from "./Estilizacao/TelaClick.styles.js";
+
 
 export default function TelaClick() {
 
@@ -45,7 +46,10 @@ export default function TelaClick() {
 				onPress={clickNovelo}
 				style={({ pressed }) => [styles.botaoNovelo, pressed && styles.botaoNoveloPressionado]}
 			>
-				<Ionicons name="basketball-outline" size={112} color="#fff" />
+				<Image source={require('../assets/modeloNoveloT.png')}
+				style={{ width: '100%', height: '200%' }} 	
+				resizeMode="contain"                       
+				/>
 			</Pressable>
 
 			<View style={styles.estatisticas}>

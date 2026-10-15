@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	tela: {
-		backgroundColor: "#f7f3fb",
+		backgroundColor: "#fff4eb",
 		flex: 1,
 	},
 	container: {
@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
 		gap: 5,
 	},
 	titulo: {
-		color: "#271638",
+		color: "#43200f",
 		fontSize: 28,
 		fontWeight: "bold",
 	},
 	descricao: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 15,
 	},
 	lista: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 	},
 	cartao: {
 		backgroundColor: "#fff",
-		borderColor: "#e7dcf3",
+		borderColor: "#f1c9a8",
 		borderRadius: 16,
 		borderWidth: 1,
 		gap: 14,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 	},
 	iconeContainer: {
 		alignItems: "center",
-		backgroundColor: "#f0e8f8",
+		backgroundColor: "#ffe2ca",
 		borderRadius: 12,
 		height: 48,
 		justifyContent: "center",
@@ -53,19 +53,25 @@ const styles = StyleSheet.create({
 		flex: 1,
 		gap: 3,
 	},
+	linhaTitulo: {
+		alignItems: "center",
+		flexDirection: "row",
+		gap: 10,
+	},
 	nome: {
-		color: "#271638",
+		color: "#43200f",
+		flex: 1,
 		fontSize: 17,
 		fontWeight: "bold",
 	},
 	texto: {
-		color: "#755f86",
+		color: "#8b5a3c",
 		fontSize: 13,
 	},
 	nivel: {
-		backgroundColor: "#f0e8f8",
+		backgroundColor: "#ffe2ca",
 		borderRadius: 20,
-		color: "#6c3cb5",
+		color: "#d94b00",
 		fontSize: 11,
 		fontWeight: "bold",
 		overflow: "hidden",
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
 	},
 	botao: {
 		alignItems: "center",
-		backgroundColor: "#6c3cb5",
+		backgroundColor: "#d94b00",
 		borderRadius: 9,
 		padding: 11,
 	},
