@@ -54,15 +54,24 @@ export default function TelaClick() {
 
 			<View style={styles.estatisticas}>
 				<View style={styles.cartaoEstatistica}>
-					<Ionicons name="hand-left-outline" size={22} color="#6c3cb5" />
-					<Text style={styles.valorEstatistica}>{mdfMelhoria}</Text>
-					<Text style={styles.rotuloEstatistica}>por toque</Text>
+					<Image source={require('../assets/pataGato.png')}
+						style={styles.iconeEstatistica}
+						resizeMode="contain"                       
+					/>
+					<View style={styles.informacoesEstatistica}>
+						<Text style={styles.valorEstatistica}>{mdfMelhoria}</Text>
+						<Text style={styles.rotuloEstatistica}>por toque</Text>
+					</View>
 				</View>
 
 				<View style={styles.cartaoEstatistica}>
-					<Ionicons name="time-outline" size={22} color="#6c3cb5" />
-					<Text style={styles.valorEstatistica}>{clicksPSegundo}</Text>
-					<Text style={styles.rotuloEstatistica}>por segundo</Text>
+					<View style={styles.iconeTempo}>
+						<Ionicons name="time-outline" size={22} color="#6c3cb5" />
+					</View>
+					<View style={styles.informacoesEstatistica}>
+						<Text style={styles.valorEstatistica}>{clicksPSegundo}</Text>
+						<Text style={styles.rotuloEstatistica}>por segundo</Text>
+					</View>
 				</View>
 			</View>
 		</ScrollView>

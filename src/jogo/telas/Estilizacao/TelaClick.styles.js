@@ -75,8 +75,25 @@ const styles = StyleSheet.create({
 		borderRadius: 14,
 		borderWidth: 1,
 		flex: 1,
+		gap: 0,
+		minWidth: 0,
+		padding: 10,
+	},
+	iconeEstatistica: {
+		height: 100,
+		width: 100,
+		flexShrink: 0,
+	},
+	iconeTempo: {
+		alignItems: "center",
+		flexShrink: 0,
+		height: 100,
+		justifyContent: "center",
+		width: 100,
+	},
+	informacoesEstatistica: {
+		alignItems: "center",
 		gap: 2,
-		padding: 14,
 	},
 	valorEstatistica: {
 		color: "#43200f",
