@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
 		gap: 14,
 	},
 	cartao: {
-		backgroundColor: "#fff",
-		borderColor: "#f1c9a8",
+		backgroundColor: "#fffaf3",
+		borderColor: "#d8a37d",
 		borderRadius: 16,
-		borderWidth: 1,
+		borderWidth: 2,
 		gap: 14,
 		padding: 16,
 	},

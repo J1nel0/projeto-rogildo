@@ -1,61 +1,31 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable, ScrollView, Text, View } from "react-native";
+import { construcoes, custoMelhoria, custosToque, formatar } from "../dadosJogo.js";
 import styles from "./Estilizacao/TelaMelhoria.styles.js";
 
-const melhorias = [
-	{
-		icone: "finger-print-outline",
-		titulo: "Toque habilidoso",
-		descricao: "+1 novelo produzido por toque.",
-		nivel: "Nível 1",
-		custo: "25 novelos",
-	},
-	{
-		icone: "speedometer-outline",
-		titulo: "Fiação veloz",
-		descricao: "+10% na produção automática.",
-		nivel: "Nível 0",
-		custo: "100 novelos",
-	},
-	{
-		icone: "sparkles-outline",
-		titulo: "Lã de qualidade",
-		descricao: "Aumenta o valor de cada novelo.",
-		nivel: "Nível 0",
-		custo: "300 novelos",
-	},
-];
-
-export default function TelaMelhoria() {
-	return (
-		<ScrollView style={styles.tela} contentContainerStyle={styles.container}>
-			<View style={styles.cabecalho}>
-				<Text style={styles.titulo}>Melhorias</Text>
-				<Text style={styles.descricao}>Fortaleça seus toques e suas construções.</Text>
-			</View>
-
-			<View style={styles.lista}>
-				{melhorias.map((melhoria) => (
-					<View key={melhoria.titulo} style={styles.cartao}>
-						<View style={styles.topoCartao}>
-							<View style={styles.iconeContainer}>
-								<Ionicons name={melhoria.icone} size={26} color="#6c3cb5" />
-							</View>
-							<View style={styles.informacoes}>
-								<View style={styles.linhaTitulo}>
-									<Text style={styles.nivel}>{melhoria.nivel}</Text>
-									<Text style={styles.nome}>{melhoria.titulo}</Text>
-								</View>
-								<Text style={styles.texto}>{melhoria.descricao}</Text>
-							</View>
-						</View>
-
-						<Pressable accessibilityRole="button" style={styles.botao}>
-							<Text style={styles.textoBotao}>Melhorar · {melhoria.custo}</Text>
-						</Pressable>
-					</View>
-				))}
-			</View>
-		</ScrollView>
-	);
+export default function TelaMelhoria({ jogo, onComprar }) {
+	const opcoes = [
+		...custosToque.map((custo, etapa) => ({ id: `toque-${etapa}`, titulo: `Toque · Melhoria ${etapa + 1}`, descricao: "Dobra os novelos por toque.", icone: "hand-left-outline", custo, etapa, tipo: "toque", nivel: jogo.nivelToque || 0, possui: true })),
+		...construcoes.flatMap((item, indice) => [0, 1, 2].map((etapa) => ({ id: `${indice}-${etapa}`, titulo: `${item.titulo} · Melhoria ${etapa + 1}`, descricao: `Dobra a produção de ${item.titulo}.`, icone: item.icone, custo: custoMelhoria(item, etapa), etapa, indice, tipo: "construcao", nivel: jogo.niveis[indice] || 0, possui: (jogo.quantidades[indice] || 0) > 0 }))),
+	].filter((item) => item.etapa >= item.nivel).map((item) => ({ ...item, bloqueada: !item.possui || item.etapa !== item.nivel }));
+	opcoes.sort((a, b) => {
+		const prioridadeA = a.bloqueada ? 2 : a.custo <= jogo.novelos ? 0 : 1;
+		const prioridadeB = b.bloqueada ? 2 : b.custo <= jogo.novelos ? 0 : 1;
+		return prioridadeA - prioridadeB || a.custo - b.custo;
+	});
+	return <ScrollView style={styles.tela} contentContainerStyle={styles.container}>
+		<View style={styles.cabecalho}><Text style={styles.titulo}>Melhorias</Text><Text style={styles.descricao}>Disponível: {formatar(jogo.novelos)} novelos</Text></View>
+		<View style={styles.lista}>
+			{opcoes.length === 0 && <Text style={styles.descricao}>Você comprou todas as melhorias!</Text>}
+			{opcoes.map((item) => <View key={item.id} style={styles.cartao}>
+				<View style={styles.topoCartao}>
+					<View style={styles.iconeContainer}><Ionicons name={item.icone} size={26} color="#d94b00" /></View>
+					<View style={styles.informacoes}><Text style={styles.nome}>{item.titulo}</Text><Text style={styles.texto}>{item.descricao}</Text></View>
+				</View>
+				<Pressable accessibilityRole="button" disabled={item.bloqueada || jogo.novelos < item.custo} onPress={() => item.tipo === "toque" ? onComprar(item.etapa, "toque") : onComprar(item.indice, true)} style={[styles.botao, (item.bloqueada || jogo.novelos < item.custo) && { opacity: 0.5 }]}>
+					<Text style={styles.textoBotao}>{item.bloqueada ? "Bloqueada · " : "Melhorar · "}{formatar(item.custo)} novelos</Text>
+				</Pressable>
+			</View>)}
+		</View>
+	</ScrollView>;
 }

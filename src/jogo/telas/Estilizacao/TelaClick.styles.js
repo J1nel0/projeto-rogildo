@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff4eb",
 		flex: 1,
 	},
+	rolagem: {
+		flex: 1,
+	},
 	container: {
 		alignItems: "center",
 		alignSelf: "center",
@@ -18,6 +21,13 @@ const styles = StyleSheet.create({
 	cabecalho: {
 		alignItems: "center",
 		gap: 6,
+		transform: [{ translateY: -30 }],
+		zIndex: 1,
+	},
+	enfeite: {
+		color: "#bb6939",
+		fontSize: 18,
+		letterSpacing: 4,
 	},
 	titulo: {
 		color: "#43200f",
@@ -32,12 +42,14 @@ const styles = StyleSheet.create({
 	},
 	placar: {
 		alignItems: "center",
-		backgroundColor: "#fff",
-		borderColor: "#f1c9a8",
+		backgroundColor: "#fffaf3",
+		borderColor: "#c7804e",
 		borderRadius: 18,
-		borderWidth: 1,
+		borderWidth: 2,
 		paddingHorizontal: 42,
 		paddingVertical: 14,
+		transform: [{ translateY: -30 }],
+		zIndex: 1,
 	},
 	rotuloPlacar: {
 		color: "#a86d46",
@@ -58,6 +70,41 @@ const styles = StyleSheet.create({
 		shadowColor: "#a83a00",
 		width: 192,
 	},
+	areaNovelo: {
+		alignItems: "center",
+		justifyContent: "center",
+		width: 260,
+		height: 260,
+		zIndex: 1,
+	},
+	orbita: {
+		position: "absolute",
+		left: "50%",
+		width: 0,
+		height: 0,
+		zIndex: 0,
+	},
+	ganho: {
+		position: "absolute",
+		top: 60,
+		color: "#fff",
+		fontSize: 30,
+		fontWeight: "bold",
+		textShadowColor: "#713000",
+		textShadowOffset: { width: 1, height: 1 },
+		textShadowRadius: 3,
+	},
+	posicaoPata: {
+		position: "absolute",
+		width: 30,
+		height: 30,
+		left: -15,
+		top: -15,
+	},
+	pata: {
+		width: 30,
+		height: 30,
+	},
 	botaoNoveloPressionado: {
 		opacity: 0.82,
 		transform: [{ scale: 0.97 }],
@@ -70,8 +117,8 @@ const styles = StyleSheet.create({
 	},
 	cartaoEstatistica: {
 		alignItems: "center",
-		backgroundColor: "#fff",
-		borderColor: "#f1c9a8",
+		backgroundColor: "#fffaf3",
+		borderColor: "#d8a37d",
 		borderRadius: 14,
 		borderWidth: 1,
 		flex: 1,
@@ -80,16 +127,16 @@ const styles = StyleSheet.create({
 		padding: 10,
 	},
 	iconeEstatistica: {
-		height: 100,
-		width: 100,
+		height: 34,
+		width: 34,
 		flexShrink: 0,
 	},
 	iconeTempo: {
 		alignItems: "center",
 		flexShrink: 0,
-		height: 100,
+		height: 34,
 		justifyContent: "center",
-		width: 100,
+		width: 34,
 	},
 	informacoesEstatistica: {
 		alignItems: "center",
@@ -103,6 +150,7 @@ const styles = StyleSheet.create({
 	rotuloEstatistica: {
 		color: "#8b5a3c",
 		fontSize: 12,
+		zIndex: 1,
 	},
 });
 

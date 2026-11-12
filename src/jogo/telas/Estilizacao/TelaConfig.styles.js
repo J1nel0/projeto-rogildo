@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
 	secao: {
 		gap: 10,
 	},
+	confirmacao: {
+		gap: 10,
+	},
 	tituloSecao: {
 		color: "#a86d46",
 		fontSize: 11,
@@ -46,6 +49,10 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		gap: 12,
 		padding: 16,
+	},
+	informacoes: {
+		flex: 1,
+		gap: 4,
 	},
 	linhaComBorda: {
 		borderBottomColor: "#f5ddc9",

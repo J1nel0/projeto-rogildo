@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	rodape: {
-		backgroundColor: "#d94b00",
-		borderTopColor: "#a83a00",
-		borderTopWidth: 1,
+		backgroundColor: "#ad4d1c",
+		borderTopColor: "#793519",
+		borderTopWidth: 4,
 		flexDirection: "row",
 		paddingBottom: 8,
 		paddingHorizontal: 6,

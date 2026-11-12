@@ -1,14 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { useState } from "react";
+import { Pressable, ScrollView, Switch, Text, View } from "react-native";
 import styles from "./Estilizacao/TelaConfig.styles.js";
 
-const preferencias = [
-	{ icone: "volume-high-outline", titulo: "Efeitos sonoros", valor: "Ligado" },
-	{ icone: "musical-notes-outline", titulo: "Música", valor: "Ligado" },
-	{ icone: "notifications-outline", titulo: "Notificações", valor: "Ligado" },
-];
-
-export default function TelaConfig() {
+export default function TelaConfig({ vibracao, onAlterarVibracao, onReiniciar }) {
+	const [confirmando, setConfirmando] = useState(false);
 	return (
 		<ScrollView style={styles.tela} contentContainerStyle={styles.container}>
 			<View style={styles.cabecalho}>
@@ -19,31 +15,33 @@ export default function TelaConfig() {
 			<View style={styles.secao}>
 				<Text style={styles.tituloSecao}>PREFERÊNCIAS</Text>
 				<View style={styles.cartao}>
-					{preferencias.map((preferencia, indice) => (
-						<Pressable
-							accessibilityRole="button"
-							key={preferencia.titulo}
-							style={[styles.linha, indice < preferencias.length - 1 && styles.linhaComBorda]}
-						>
-							<Ionicons name={preferencia.icone} size={22} color="#6c3cb5" />
-							<Text style={styles.nomePreferencia}>{preferencia.titulo}</Text>
-							<Text style={styles.valorPreferencia}>{preferencia.valor}</Text>
-							<Ionicons name="chevron-forward" size={18} color="#9a89a8" />
-						</Pressable>
-					))}
+					<View style={styles.linha}>
+						<Ionicons name="phone-portrait-outline" size={22} color="#d94b00" />
+						<View style={styles.informacoes}>
+							<Text style={styles.nomePreferencia}>Vibração</Text>
+							<Text style={styles.descricao}>Vibrar ao conquistar uma recompensa.</Text>
+						</View>
+						<Switch accessibilityLabel="Vibração nas conquistas" value={vibracao} onValueChange={onAlterarVibracao} trackColor={{ false: "#d7c4b8", true: "#eb9a65" }} thumbColor={vibracao ? "#d94b00" : "#f5f5f5"} />
+					</View>
 				</View>
+				{confirmando ? <View style={styles.confirmacao}>
+					<Text style={styles.descricao}>Reiniciar apaga novelos, construções, melhorias e conquistas. Você começará com uma patinha. Seu nome e sua foto serão mantidos.</Text>
+					<Pressable accessibilityRole="button" onPress={() => { onReiniciar(); setConfirmando(false); }} style={styles.botaoPrimario}><Text style={styles.textoBotaoPrimario}>Confirmar reinício</Text></Pressable>
+					<Pressable accessibilityRole="button" onPress={() => setConfirmando(false)} style={styles.botaoSecundario}><Text style={styles.textoBotaoSecundario}>Cancelar</Text></Pressable>
+				</View> : <Pressable accessibilityRole="button" onPress={() => setConfirmando(true)} style={styles.botaoSecundario}><Text style={styles.textoBotaoSecundario}>Reiniciar progresso</Text></Pressable>}
 			</View>
 
 			<View style={styles.secao}>
 				<Text style={styles.tituloSecao}>PROGRESSO</Text>
-				<Pressable accessibilityRole="button" style={styles.botaoPrimario}>
-					<Ionicons name="save-outline" size={20} color="#fff" />
-					<Text style={styles.textoBotaoPrimario}>Salvar progresso</Text>
-				</Pressable>
-				<Pressable accessibilityRole="button" style={styles.botaoSecundario}>
-					<Ionicons name="refresh-outline" size={20} color="#6c3cb5" />
-					<Text style={styles.textoBotaoSecundario}>Restaurar configurações</Text>
-				</Pressable>
+				<View style={styles.cartao}>
+					<View style={styles.linha}>
+						<Ionicons name="save-outline" size={22} color="#d94b00" />
+						<View style={styles.informacoes}>
+							<Text style={styles.nomePreferencia}>Salvamento automático</Text>
+							<Text style={styles.descricao}>Seu progresso é salvo neste dispositivo.</Text>
+						</View>
+					</View>
+				</View>
 			</View>
 		</ScrollView>
 	);

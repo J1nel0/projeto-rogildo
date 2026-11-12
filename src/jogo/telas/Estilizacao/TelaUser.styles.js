@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
 	},
 	perfil: {
 		alignItems: "center",
-		backgroundColor: "#fff",
-		borderColor: "#f1c9a8",
+		backgroundColor: "#fffaf3",
+		borderColor: "#d8a37d",
 		borderRadius: 18,
-		borderWidth: 1,
+		borderWidth: 2,
 		gap: 4,
 		padding: 22,
 		width: "100%",
@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
 		marginBottom: 6,
 		width: 76,
 	},
+	foto: {
+		width: 76,
+		height: 76,
+		borderRadius: 38,
+	},
 	nome: {
 		color: "#43200f",
 		fontSize: 21,
@@ -54,6 +59,40 @@ const styles = StyleSheet.create({
 	email: {
 		color: "#8b5a3c",
 		fontSize: 13,
+	},
+	input: {
+		borderColor: "#d94b00",
+		borderRadius: 8,
+		borderWidth: 1,
+		color: "#43200f",
+		fontSize: 16,
+		padding: 10,
+		textAlign: "center",
+		width: "100%",
+	},
+	lista: {
+		backgroundColor: "#fff",
+		borderColor: "#f1c9a8",
+		borderRadius: 16,
+		borderWidth: 1,
+		gap: 14,
+		padding: 18,
+		width: "100%",
+	},
+	item: {
+		alignItems: "center",
+		flexDirection: "row",
+		gap: 10,
+	},
+	itemConteudo: {
+		flex: 1,
+		gap: 3,
+	},
+	itemTitulo: {
+		color: "#43200f",
+		flexShrink: 1,
+		fontSize: 14,
+		fontWeight: "bold",
 	},
 	estatisticas: {
 		alignItems: "center",
